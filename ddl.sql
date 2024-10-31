@@ -10,7 +10,6 @@ CREATE TABLE IF NOT EXISTS Customers (
 CREATE TABLE IF NOT EXISTS Sales (
   saleId INT NOT NULL AUTO_INCREMENT,
   date DATETIME NOT NULL,
-  totalPrice DECIMAL(12,2) NOT NULL,
   customerId INT NULL,
   PRIMARY KEY (saleId),
   FOREIGN KEY (customerId) REFERENCES Customers(customerId)
@@ -41,6 +40,7 @@ CREATE TABLE IF NOT EXISTS SalesProducts (
   productId INT NOT NULL,
   saleId INT  NOT NULL,
   quantity INT NOT NULL,
+  lineTotal DECIMAL(12,2) NOT NULL,
   PRIMARY KEY (saleProductId),
   FOREIGN KEY (productId) REFERENCES Products(productId)
     ON DELETE CASCADE
